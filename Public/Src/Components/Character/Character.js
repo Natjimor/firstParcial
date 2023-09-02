@@ -1,5 +1,5 @@
 class Character extends HTMLElement {
-    Name = "${this.characterName}"
+    Name = this.characterName
 
     static get observedAttributes(){
         return ["name", "alternativename1", "alternativename2", "species", "gender", "house", "yearofbirth"]
@@ -53,15 +53,14 @@ class Character extends HTMLElement {
         this.render();
         const button = this.shadowRoot.querySelector("button");
         button.addEventListener("click",() => {
-            console.log("mjgmjgmjgmj");
-            if (this.Name === "${this.characterName}") {
-                this.Name = "${this.characterAlternative1}"
+            if (this.Name === this.characterName) {
+                this.Name = this.characterAlternative1
             } 
-            if (this.Name === "${this.characterAlternative1}") {
-                this.Name = "${this.characterAlternative2}"
+            if (this.Name === this.characterAlternative1) {
+                this.Name = this.characterAlternative2
             }
-            if (this.Name === "${this.characterAlternative2}") {
-                this.Name = "${this.characterName}"
+            if (this.Name === this.characterAlternative2) {
+                this.Name = this.characterName
             }
             this.mount()
         })
